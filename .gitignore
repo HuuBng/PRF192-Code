@@ -225,11 +225,12 @@ dkms.conf
 *.tmp
 
 # Word temporary
-~$*.docx*
+~$*.doc*
+*.docx
 
 # Word Auto Backup File
-Backup of *.docx*
-
+Backup of *.doc*
+*.docx
 # Excel temporary
 ~$*.xls*
 
