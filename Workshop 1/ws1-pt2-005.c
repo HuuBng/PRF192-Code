@@ -7,7 +7,7 @@ int main() {
 
   do {
     if (i == 1)
-      printf("Enter ch: ");\
+      printf("Enter ch: ");
     ch = getchar();
     ch = toupper(ch);
     if (ch >= 'A' && ch <= 'Z') {
