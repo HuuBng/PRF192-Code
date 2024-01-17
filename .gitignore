@@ -204,7 +204,7 @@ dkms.conf
 # The most widely used compression format on Microsoft Windows. Commonly used on Macintosh and Unix systems as well.
 *.zip
 *.zipx
-# application/x-zoo 	zoo 	Multiple 	Multiple 	Yes 	
+# application/x-zoo 	zoo 	Multiple 	Multiple 	Yes
 *.zoo
 # Journaling (append-only) archive format with rollback capability. Supports deduplication and incremental update based on last-modified dates. Multi-threaded. Compresses in LZ77, BWT, and context mixing formats. Open source.
 *.zpaq
@@ -225,10 +225,10 @@ dkms.conf
 *.tmp
 
 # Word temporary
-~$*.doc*
+~$*.docx*
 
 # Word Auto Backup File
-Backup of *.doc*
+Backup of *.docx*
 
 # Excel temporary
 ~$*.xls*
