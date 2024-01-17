@@ -5,9 +5,9 @@ This repo is for every thing related to my PRF192 class
 C
 
 # TODO
-- [ ] Add ws1-pt2-001 to 006
-- [ ] Add ws2-pt1-002 to 010
-- [ ] Finish setting up this repo
+- [x] ~~Add ws1-pt2-001 to 006~~
+- [ ] Add ws2-pt1
+- [ ] Add ws2-pt2
 
 
 # Naming scheme
