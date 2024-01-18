@@ -21,11 +21,6 @@ int main() {
     scanf("%d", &n);
   } while (n < 2);
 
-  // if (isPrime(n))
-  //   printf("Yes, %d is a prime number", n);
-  // else
-  //   printf("No, %d is not a prime number", n);
-
   isPrime(n) ? printf("Yes, %d is a prime number", n)
              : printf("No, %d is not a prime number", n);
 
