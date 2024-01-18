@@ -1,4 +1,4 @@
-// Output:
+// Output: create the following shapes using function
 // rectangle(n, m) | triangle1(n) | triangle2(n) | triangle3(n)
 // *****           | ***          | ***          |   *
 // *****           | **           |  **          |  **
