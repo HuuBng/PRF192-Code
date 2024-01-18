@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-int prime(int n) {
+int isPrime(int n) {
   int m = sqrt(n), i;
   if (n < 2)
     return 0;
@@ -20,7 +20,7 @@ int main() {
   } while (n < 2);
 
   for (i = 2; i <= n; i++) {
-    if (prime(i) == 1)
+    if (isPrime(i))
       printf("%d ", i);
   }
   return 0;
