@@ -63,7 +63,7 @@ void triangle2(int row) {
 void triangle3(int row) {
   int i, j;
   for (i = row; i >= 1; i--) {
-    for (j = 1; j <= i; j++)
+    for (j = 1; j < i; j++)
       printf(" ");
     for (j = 1; j <= row - i + 1; j++)
       printf("*");
