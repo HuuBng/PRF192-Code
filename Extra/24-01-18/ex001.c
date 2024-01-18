@@ -1,5 +1,5 @@
 // Input: n
-// Output: n! (1*2*3*...*n)
+// Output: n! (1 * 2 * 3 *...* n)
 
 #include <stdio.h>
 
