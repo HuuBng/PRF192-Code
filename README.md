@@ -11,7 +11,7 @@ This repo is for every thing related to my PRF192 class
 - [ ] Add ws2-pt2
 
 ## T2 - Optional
-- [ ] Add ws2-pt1-master
+- [x] Add ws2-pt1-master
 - [ ] Add ws2-pt2-master
 - [ ] Add ws2-master
 ***
