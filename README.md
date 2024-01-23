@@ -8,11 +8,11 @@ This repo is for every thing related to my PRF192 class
 ## T1 - Required
 - [x] ~~Add ws1-pt2-001 to 006~~
 - [x] ~~Add ws2-pt1~~
-- [ ] Add ws2-pt2
+- [x] ~~Add ws2-pt2~~
 
 ## T2 - Optional
-- [x] Add ws2-pt1-master
-- [ ] Add ws2-pt2-master
+- [x] ~~Add ws2-pt1-master~~
+- [x] ~~Add ws2-pt2-master~~
 - [ ] Add ws2-master
 ***
 
