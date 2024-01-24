@@ -13,7 +13,7 @@ This repo is for every thing related to my PRF192 class
 ## T2 - Optional
 - [x] ~~Add ws2-pt1-master~~
 - [x] ~~Add ws2-pt2-master~~
-- [ ] Add ws2-master
+- [x] ~~Add ws2-master~~
 ***
 
 # Naming scheme
