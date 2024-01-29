@@ -9,6 +9,7 @@ This repo is for every thing related to my PRF192 class
 - [x] ~~Add ws1-pt2-001 to 006~~
 - [x] ~~Add ws2-pt1~~
 - [x] ~~Add ws2-pt2~~
+- [ ] Add ws3-pt2
 
 ## T2 - Optional
 - [x] ~~Add ws2-pt1-master~~
