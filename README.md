@@ -23,3 +23,7 @@ This repo is for every thing related to my PRF192 class
 ws(x)-pt(y)-(z) = workshop x part y program z
 
 ex: ws1-pt2-003 = workshop 1 part 2 program 003
+
+# Operating system
+- Windows 11 (main)
+- Debian 12
