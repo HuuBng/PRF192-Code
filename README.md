@@ -9,14 +9,17 @@ This repo is for every thing related to my PRF192 class
 - [x] ~~Add ws1-pt2-001 to 006~~
 - [x] ~~Add ws2-pt1~~
 - [x] ~~Add ws2-pt2~~
-- [ ] Add ws3-pt2
+- [x] ~~Add ws3-pt2~~
+- [ ] Add ws4
 
 ## T2 - Optional
 - [x] ~~Add ws2-pt1-master~~
 - [x] ~~Add ws2-pt2-master~~
 - [x] ~~Add ws2-master~~
-- [ ] Add ASM02
-- [ ] Add ASM03
+- [x] ~~Add ASM02~~
+- [x] ~~Add ASM03~~
+- [x] ~~Add ASM04~~
+- [ ] Add ASM05
 ***
 
 # Naming scheme
