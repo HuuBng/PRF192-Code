@@ -51,6 +51,11 @@ int main() {
       scanf("%d", &minVal);
       printf("Enter max value: ");
       scanf("%d", &maxVal);
+      if (minVal > maxVal) {
+        int t = minVal;
+        minVal = maxVal;
+        maxVal = t;
+      }
       printInRangeArray(a, arrIndex, minVal, maxVal);
       break;
     }
