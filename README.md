@@ -10,7 +10,7 @@ This repo is for every thing related to my PRF192 class
 - [x] ~~Add ws2-pt1~~
 - [x] ~~Add ws2-pt2~~
 - [x] ~~Add ws3-pt2~~
-- [ ] Add ws4
+- [x] ~~Add ws4~~
 
 ## T2 - Optional
 - [x] ~~Add ws2-pt1-master~~
