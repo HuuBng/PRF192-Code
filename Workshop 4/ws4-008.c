@@ -3,7 +3,6 @@
 void inputArray(int a[], int n);
 void printArray(int a[], int n);
 void bubbleSortArray(int a[], int n);
-void swap(int *p1, int *p2);
 
 int main() {
   int a[100], n;
@@ -29,13 +28,6 @@ void bubbleSortArray(int a[], int n) {
       }
     }
   }
-}
-
-void swap(int *p1, int *p2) {
-  int temp;
-  temp = *p1;
-  *p1 = *p2;
-  *p2 = temp;
 }
 
 void printArray(int a[], int n) {
