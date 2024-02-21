@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-void inputArray(int a[], int n);
 void printArray(int a[], int n);
 void countArray(int a[], int n, int x);
 void printInRangeArray(int a[], int n, int minVal, int maxVal);
