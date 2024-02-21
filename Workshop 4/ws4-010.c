@@ -8,7 +8,7 @@ void bubbleSortArray(int a[], int n);
 
 void menu() {
   printf("\n =====================================================");
-  printf("\n || 1.      Add a value                             ||");
+  printf("\n || 1.      Add value                               ||");
   printf("\n || 2.      Search a value                          ||");
   printf("\n || 3.      Print out array                         ||");
   printf("\n || 4.      Print out values in a range             ||");
@@ -28,9 +28,14 @@ int main() {
     printf("\n");
     switch (choice) {
     case 1: {
-      printf("Enter a value to add: ");
-      scanf("%d", &a[arrIndex]);
-      arrIndex++;
+      int n, i;
+      printf("Enter how many element to add: ");
+      scanf("%d", &n);
+      for(i = arrIndex; i < arrIndex + n; i++) {
+        printf("a[%d] = ", i);
+        scanf("%d", &a[i]);
+      }
+      arrIndex += n;
       break;
     }
     case 2: {
