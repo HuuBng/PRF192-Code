@@ -103,7 +103,7 @@ void countArray(int a[], int n, int x) {
 
 void bubbleSortArray(int a[], int n) {
   int i, j;
-  for (i = 0; i < n; i++) {
+  for (i = 0; i < n - 1; i++) {
     for (j = n - 1; j > i; j--) {
       if (a[j] < a[j - 1]) {
         int t = a[j];
