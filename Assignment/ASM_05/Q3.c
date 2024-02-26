@@ -21,7 +21,7 @@ char* reverseString(char *s){
 	size = strlen(str);
 
 	for(i = 0; i < size; i++) {
-	 	if(isalpha(str[i]) || str[i] >= '0' && str[i] <= '9') {
+	 	if(isalpha(str[i]) || (str[i] >= '0' && str[i] <= '9')) {
 			name[k][j] = str[i];
 			j += 1;
 	 	} else if (str[i] == ' ' || str[i] == '\0') {
@@ -38,7 +38,7 @@ char* reverseString(char *s){
 			i++;
 		}
 		str[i] = ' ';
-		i += 1;
+		i++;
 	}
 
 	for(i = 0; str[i] != '\0'; i++) {
