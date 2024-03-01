@@ -1,4 +1,4 @@
-// Version: 1
+// Version: 2
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,6 +6,7 @@
 #define MAX 101
 
 void inputMatrix(float mat[][MAX], int row, int column);
+void inputRowColumn(char id, int *row, int *column);
 void printMatrix(float mat[][MAX], int row, int column);
 void menu() {
   printf("\n");
@@ -30,22 +31,17 @@ int main() {
       // Create matrix A
       float matA[MAX][MAX];
       int rowA, columnA;
-      printf("\nEnter number of row for matrix A: ");
-      scanf("%d", &rowA);
-      printf("Enter number of column for matrix A: ");
-      scanf("%d", &columnA);
+      inputRowColumn('A', &rowA, &columnA);
 
       // Create matrix B
       float matB[MAX][MAX];
       int rowB, columnB;
-      printf("Enter number of row for matrix B: ");
-      scanf("%d", &rowB);
-      printf("Enter number of column for matrix B: ");
-      scanf("%d", &columnB);
+      inputRowColumn('B', &rowB, &columnB);
 
       // Check compatible
       if (columnA != rowB) {
-        printf("\nCan't multiply because not compatible\n");
+        printf("\nCan't multiply because the number of column of matrix A is "
+               "not equal to the number of row of matrix B\n");
         break;
       }
 
@@ -61,8 +57,9 @@ int main() {
       int i, j, k;
       for (i = 0; i < rowA; i++) {
         for (j = 0; j < columnB; j++) {
+          matC[i][j] = 0;
           for (k = 0; k < columnA; k++) {
-            matC[i][j] = matA[i][k] * matB[k][j];
+            matC[i][j] += matA[i][k] * matB[k][j];
           }
         }
       }
@@ -82,22 +79,17 @@ int main() {
       // Create matrix A
       float matA[MAX][MAX];
       int rowA, columnA;
-      printf("\nEnter number of row for matrix A: ");
-      scanf("%d", &rowA);
-      printf("Enter number of column for matrix A: ");
-      scanf("%d", &columnA);
+      inputRowColumn('A', &rowA, &columnA);
 
       // Create matrix B
       float matB[MAX][MAX];
       int rowB, columnB;
-      printf("Enter number of row for matrix B: ");
-      scanf("%d", &rowB);
-      printf("Enter number of column for matrix B: ");
-      scanf("%d", &columnB);
+      inputRowColumn('B', &rowB, &columnB);
 
       // Check compatible
       if (rowA != rowB || columnA != columnB) {
-        printf("\nCan't add or subtract because not compatible\n");
+        printf(
+            "\nCan't add or subtract because matrix A & B is not equal size\n");
         break;
       }
 
@@ -112,8 +104,9 @@ int main() {
       int i, j;
       for (i = 0; i < rowA; i++) {
         for (j = 0; j < columnA; j++) {
-          matC[i][j] = matA[i][j] + matB[i][j];
-          matD[i][j] = matA[i][j] - matB[i][j];
+          matC[i][j] = matD[i][j] = 0;
+          matC[i][j] += matA[i][j] + matB[i][j];
+          matD[i][j] += matA[i][j] - matB[i][j];
         }
       }
 
@@ -134,10 +127,7 @@ int main() {
       // Input matrix A
       float matA[MAX][MAX];
       int rowA, columnA;
-      printf("\nEnter number of row for matrix A: ");
-      scanf("%d", &rowA);
-      printf("Enter number of column for matrix A: ");
-      scanf("%d", &columnA);
+      inputRowColumn('A', &rowA, &columnA);
       inputMatrix(matA, rowA, columnA);
 
       // Input real number
@@ -167,22 +157,17 @@ int main() {
       // Create matrix A
       float matA[MAX][MAX];
       int rowA, columnA;
-      printf("\nEnter number of row for matrix A: ");
-      scanf("%d", &rowA);
-      printf("Enter number of column for matrix A: ");
-      scanf("%d", &columnA);
+      inputRowColumn('A', &rowA, &columnA);
 
       // Create matrix B
       float matB[MAX][MAX];
       int rowB, columnB;
-      printf("Enter number of row for matrix B: ");
-      scanf("%d", &rowB);
-      printf("Enter number of column for matrix B: ");
-      scanf("%d", &columnB);
+      inputRowColumn('B', &rowB, &columnB);
 
       // Check compatible
       if (rowA != rowB || columnA != columnB) {
-        printf("\nCan't add or subtract because not compatible\n");
+        printf(
+            "\nCan't add or subtract because matrix A & B is not equal size\n");
         break;
       }
 
@@ -219,7 +204,8 @@ int main() {
     default:
       printf("Bye bye!!!");
     }
-  } while (1 <= choice && choice <= 4);
+
+  } while (choice >= 1 && choice <= 4);
 
   return 0;
 }
@@ -232,6 +218,15 @@ void inputMatrix(float mat[][MAX], int row, int column) {
       scanf("%f", &mat[i][j]);
     }
   }
+}
+
+void inputRowColumn(char id, int *row, int *column) {
+  do {
+    printf("\nEnter number of row for matrix %c: ", id);
+    scanf("%d", row);
+    printf("Enter number of column for matrix %c: ", id);
+    scanf("%d", column);
+  } while (*row < 0 || *column < 0);
 }
 
 void printMatrix(float mat[][MAX], int row, int column) {
