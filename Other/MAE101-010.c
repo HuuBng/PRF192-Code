@@ -1,5 +1,6 @@
-// Version: 3
+// Version: 4
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,6 +9,9 @@
 void inputMatrix(float **mat, int row, int column);
 void inputRowColumn(char id, int *row, int *column);
 void printMatrix(float **mat, int row, int column);
+void autoInputMatrix(float **mat, int row, int column, int limit);
+int rand_lim(int limit);
+
 void menu() {
   printf("\n");
   printf("================================\n");
@@ -15,12 +19,17 @@ void menu() {
   printf("|| 2.     A + B, A - B        ||\n");
   printf("|| 3.     A * real number     ||\n");
   printf("|| 4.     A - B + real number ||\n");
+  printf("||----------------------------||\n");
+  printf("|| 5.     Toggle autoInput    ||\n");
   printf("|| OTHER. Exit                ||\n");
   printf("================================\n");
 }
 
 int main() {
+
   int choice, ii;
+  bool autoInput = false;
+
   do {
     menu();
     printf("\nEnter choice: ");
@@ -51,11 +60,21 @@ int main() {
         break;
       }
 
-      // Input matrix
-      printf("\nEnter matrix A:\n");
-      inputMatrix(matA, rowA, columnA);
-      printf("Enter matrix B:\n");
-      inputMatrix(matB, rowB, columnB);
+      // Check autoInput & Input matrix
+      if (autoInput) {
+        int limit;
+        do {
+          printf("Enter limit(>0) for autoInput: ");
+          scanf("%d", &limit);
+        } while (limit <= 0);
+        autoInputMatrix(matA, rowA, columnA, limit);
+        autoInputMatrix(matB, rowB, columnB, limit);
+      } else {
+        printf("\nEnter matrix A:\n");
+        inputMatrix(matA, rowA, columnA);
+        printf("Enter matrix B:\n");
+        inputMatrix(matB, rowB, columnB);
+      }
 
       // Create a matrix C (heap) to store result
       int rowC = rowA, columnC = columnB;
@@ -79,7 +98,7 @@ int main() {
       printMatrix(matA, rowA, columnA);
       printf("\nMatrix B: \n");
       printMatrix(matB, rowB, columnB);
-      printf("\nResult: \n");
+      printf("\nResult A * B: \n");
       printMatrix(matC, rowC, columnC);
 
       break;
@@ -109,11 +128,21 @@ int main() {
         break;
       }
 
-      // Input matrix
-      printf("\nEnter matrix A:\n");
-      inputMatrix(matA, rowA, columnA);
-      printf("Enter matrix B:\n");
-      inputMatrix(matB, rowB, columnB);
+      // Check autoInput & Input matrix
+      if (autoInput) {
+        int limit;
+        do {
+          printf("Enter limit(>0) for autoInput: ");
+          scanf("%d", &limit);
+        } while (limit <= 0);
+        autoInputMatrix(matA, rowA, columnA, limit);
+        autoInputMatrix(matB, rowB, columnB, limit);
+      } else {
+        printf("\nEnter matrix A:\n");
+        inputMatrix(matA, rowA, columnA);
+        printf("Enter matrix B:\n");
+        inputMatrix(matB, rowB, columnB);
+      }
 
       // Create a matrix C (+)(heap) to store result
       int rowC = rowA, columnC = columnA;
@@ -158,7 +187,17 @@ int main() {
       for (ii = 0; ii < rowA; ii++) {
         matA[ii] = (float *)malloc(columnA * sizeof(float));
       }
-      inputMatrix(matA, rowA, columnA);
+      if (autoInput) {
+        int limit;
+        do {
+          printf("Enter limit(>0) for autoInput: ");
+          scanf("%d", &limit);
+        } while (limit <= 0);
+        autoInputMatrix(matA, rowA, columnA, limit);
+      } else {
+        printf("\nEnter matrix A:\n");
+        inputMatrix(matA, rowA, columnA);
+      }
 
       // Input real number
       float number;
@@ -212,11 +251,21 @@ int main() {
         break;
       }
 
-      // Input matrix
-      printf("\nEnter matrix A:\n");
-      inputMatrix(matA, rowA, columnA);
-      printf("Enter matrix B:\n");
-      inputMatrix(matB, rowB, columnB);
+      // Check autoInput & Input matrix
+      if (autoInput) {
+        int limit;
+        do {
+          printf("Enter limit(>0) for autoInput: ");
+          scanf("%d", &limit);
+        } while (limit <= 0);
+        autoInputMatrix(matA, rowA, columnA, limit);
+        autoInputMatrix(matB, rowB, columnB, limit);
+      } else {
+        printf("\nEnter matrix A:\n");
+        inputMatrix(matA, rowA, columnA);
+        printf("Enter matrix B:\n");
+        inputMatrix(matB, rowB, columnB);
+      }
 
       // Input real number
       float number;
@@ -247,11 +296,22 @@ int main() {
 
       break;
     }
+    case 5: {
+
+      autoInput = !autoInput;
+
+      if (autoInput)
+        printf("\nautoInput is enabled!!!\n");
+      else
+        printf("\nautoInput is disabled!!!\n");
+
+      break;
+    }
     default:
       printf("Bye bye!!!");
     }
 
-  } while (choice >= 1 && choice <= 4);
+  } while (choice >= 1 && choice <= 5);
 
   return 0;
 }
@@ -282,5 +342,25 @@ void printMatrix(float **mat, int row, int column) {
       printf("%.2f\t", mat[i][j]);
     }
     printf("\n");
+  }
+}
+
+int rand_lim(int limit) {
+  // return a random number between 0 and limit inclusive. [0, limit]
+  // RAND_MAX default value: 32767
+  int divisor = RAND_MAX / (limit + 1);
+  int retvalue;
+  do {
+    retvalue = rand() / divisor;
+  } while (retvalue > limit);
+  return retvalue;
+}
+
+void autoInputMatrix(float **mat, int row, int column, int limit) {
+  int i, j;
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < column; j++) {
+      mat[i][j] = rand_lim(limit);
+    }
   }
 }
