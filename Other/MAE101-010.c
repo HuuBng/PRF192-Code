@@ -1,4 +1,4 @@
-// Version: 4.1
+// Version: 5
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -101,6 +101,18 @@ int main() {
       printf("\nResult A * B: \n");
       printMatrix(matC, rowC, columnC);
 
+      // free memory
+      for (ii = 0; ii < rowA; ii++) {
+        free(matA[ii]);
+        free(matC[ii]);
+      }
+      free(matA);
+      free(matC);
+      for (ii = 0; ii < rowB; ii++) {
+        free(matB[ii]);
+      }
+      free(matB);
+
       break;
     }
     case 2: { // m.A + m.B, m.A - m.B
@@ -176,6 +188,18 @@ int main() {
       printf("\nResult A - B: \n");
       printMatrix(matD, rowA, columnA);
 
+      // free memory
+      for (ii = 0; ii < rowA; ii++) {
+        free(matA[ii]);
+        free(matB[ii]);
+        free(matC[ii]);
+        free(matD[ii]);
+      }
+      free(matA);
+      free(matB);
+      free(matC);
+      free(matD);
+
       break;
     }
     case 3: { // m.A * real number
@@ -223,6 +247,14 @@ int main() {
       printMatrix(matA, rowA, columnA);
       printf("\nResult A * %.04f\n", number);
       printMatrix(matC, rowA, columnA);
+
+      // free memory
+      for (ii = 0; ii < rowA; ii++) {
+        free(matA[ii]);
+        free(matC[ii]);
+      }
+      free(matA);
+      free(matC);
 
       break;
     }
@@ -293,6 +325,16 @@ int main() {
       printMatrix(matB, rowB, columnB);
       printf("\nResult A - B + %.04f\n", number);
       printMatrix(matC, rowA, columnA);
+
+      // free memory
+      for (ii = 0; ii < rowA; ii++) {
+        free(matA[ii]);
+        free(matB[ii]);
+        free(matC[ii]);
+      }
+      free(matA);
+      free(matB);
+      free(matC);
 
       break;
     }
