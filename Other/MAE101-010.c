@@ -1,4 +1,4 @@
-// Version: 4
+// Version: 4.1
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -10,7 +10,7 @@ void inputMatrix(float **mat, int row, int column);
 void inputRowColumn(char id, int *row, int *column);
 void printMatrix(float **mat, int row, int column);
 void autoInputMatrix(float **mat, int row, int column, int limit);
-int rand_lim(int limit);
+float rand_lim(int limit);
 
 void menu() {
   printf("\n");
@@ -64,7 +64,7 @@ int main() {
       if (autoInput) {
         int limit;
         do {
-          printf("Enter limit(>0) for autoInput: ");
+          printf("\nEnter limit(>0) for autoInput: ");
           scanf("%d", &limit);
         } while (limit <= 0);
         autoInputMatrix(matA, rowA, columnA, limit);
@@ -132,7 +132,7 @@ int main() {
       if (autoInput) {
         int limit;
         do {
-          printf("Enter limit(>0) for autoInput: ");
+          printf("\nEnter limit(>0) for autoInput: ");
           scanf("%d", &limit);
         } while (limit <= 0);
         autoInputMatrix(matA, rowA, columnA, limit);
@@ -190,7 +190,7 @@ int main() {
       if (autoInput) {
         int limit;
         do {
-          printf("Enter limit(>0) for autoInput: ");
+          printf("\nEnter limit(>0) for autoInput: ");
           scanf("%d", &limit);
         } while (limit <= 0);
         autoInputMatrix(matA, rowA, columnA, limit);
@@ -201,7 +201,7 @@ int main() {
 
       // Input real number
       float number;
-      printf("Enter a real number: ");
+      printf("\nEnter a real number: ");
       scanf("%f", &number);
 
       // Create a matrix C (heap) to store result
@@ -255,7 +255,7 @@ int main() {
       if (autoInput) {
         int limit;
         do {
-          printf("Enter limit(>0) for autoInput: ");
+          printf("\nEnter limit(>0) for autoInput: ");
           scanf("%d", &limit);
         } while (limit <= 0);
         autoInputMatrix(matA, rowA, columnA, limit);
@@ -269,7 +269,7 @@ int main() {
 
       // Input real number
       float number;
-      printf("Enter a real number: ");
+      printf("\nEnter a real number: ");
       scanf("%f", &number);
 
       // Create a matrix C (heap) to store result
@@ -345,11 +345,11 @@ void printMatrix(float **mat, int row, int column) {
   }
 }
 
-int rand_lim(int limit) {
+float rand_lim(int limit) {
   // return a random number between 0 and limit inclusive. [0, limit]
   // RAND_MAX default value: 32767
-  int divisor = RAND_MAX / (limit + 1);
-  int retvalue;
+  float divisor = RAND_MAX / (limit + 1);
+  float retvalue;
   do {
     retvalue = rand() / divisor;
   } while (retvalue > limit);
