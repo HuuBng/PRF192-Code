@@ -1,4 +1,4 @@
-// Version: 5
+// Version: 6
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -6,11 +6,11 @@
 
 #define MAX 1000
 
-void inputMatrix(float **mat, int row, int column);
+void inputMatrix(char id, float **mat, int row, int column);
 void inputRowColumn(char id, int *row, int *column);
 void printMatrix(float **mat, int row, int column);
-void autoInputMatrix(float **mat, int row, int column, int limit);
-float rand_lim(int limit);
+void autoInputMatrix(char id, float **mat, int row, int column);
+float rand_lim(int limit, int mode);
 
 void menu() {
   printf("\n");
@@ -62,18 +62,11 @@ int main() {
 
       // Check autoInput & Input matrix
       if (autoInput) {
-        int limit;
-        do {
-          printf("\nEnter limit(>0) for autoInput: ");
-          scanf("%d", &limit);
-        } while (limit <= 0);
-        autoInputMatrix(matA, rowA, columnA, limit);
-        autoInputMatrix(matB, rowB, columnB, limit);
+        autoInputMatrix('A', matA, rowA, columnA);
+        autoInputMatrix('B', matB, rowB, columnB);
       } else {
-        printf("\nEnter matrix A:\n");
-        inputMatrix(matA, rowA, columnA);
-        printf("Enter matrix B:\n");
-        inputMatrix(matB, rowB, columnB);
+        inputMatrix('A', matA, rowA, columnA);
+        inputMatrix('B', matB, rowB, columnB);
       }
 
       // Create a matrix C (heap) to store result
@@ -142,18 +135,11 @@ int main() {
 
       // Check autoInput & Input matrix
       if (autoInput) {
-        int limit;
-        do {
-          printf("\nEnter limit(>0) for autoInput: ");
-          scanf("%d", &limit);
-        } while (limit <= 0);
-        autoInputMatrix(matA, rowA, columnA, limit);
-        autoInputMatrix(matB, rowB, columnB, limit);
+        autoInputMatrix('A', matA, rowA, columnA);
+        autoInputMatrix('B', matB, rowB, columnB);
       } else {
-        printf("\nEnter matrix A:\n");
-        inputMatrix(matA, rowA, columnA);
-        printf("Enter matrix B:\n");
-        inputMatrix(matB, rowB, columnB);
+        inputMatrix('A', matA, rowA, columnA);
+        inputMatrix('B', matB, rowB, columnB);
       }
 
       // Create a matrix C (+)(heap) to store result
@@ -212,15 +198,9 @@ int main() {
         matA[ii] = (float *)malloc(columnA * sizeof(float));
       }
       if (autoInput) {
-        int limit;
-        do {
-          printf("\nEnter limit(>0) for autoInput: ");
-          scanf("%d", &limit);
-        } while (limit <= 0);
-        autoInputMatrix(matA, rowA, columnA, limit);
+        autoInputMatrix('A', matA, rowA, columnA);
       } else {
-        printf("\nEnter matrix A:\n");
-        inputMatrix(matA, rowA, columnA);
+        inputMatrix('A', matA, rowA, columnA);
       }
 
       // Input real number
@@ -285,18 +265,11 @@ int main() {
 
       // Check autoInput & Input matrix
       if (autoInput) {
-        int limit;
-        do {
-          printf("\nEnter limit(>0) for autoInput: ");
-          scanf("%d", &limit);
-        } while (limit <= 0);
-        autoInputMatrix(matA, rowA, columnA, limit);
-        autoInputMatrix(matB, rowB, columnB, limit);
+        autoInputMatrix('A', matA, rowA, columnA);
+        autoInputMatrix('B', matB, rowB, columnB);
       } else {
-        printf("\nEnter matrix A:\n");
-        inputMatrix(matA, rowA, columnA);
-        printf("Enter matrix B:\n");
-        inputMatrix(matB, rowB, columnB);
+        inputMatrix('A', matA, rowA, columnA);
+        inputMatrix('B', matB, rowB, columnB);
       }
 
       // Input real number
@@ -358,7 +331,8 @@ int main() {
   return 0;
 }
 
-void inputMatrix(float **mat, int row, int column) {
+void inputMatrix(char id, float **mat, int row, int column) {
+  printf("\nEnter matrix %c: \n", id);
   int i, j;
   for (i = 0; i < row; i++) {
     for (j = 0; j < column; j++) {
@@ -387,22 +361,37 @@ void printMatrix(float **mat, int row, int column) {
   }
 }
 
-float rand_lim(int limit) {
+float rand_lim(int limit, int mode) {
   // return a random number between 0 and limit inclusive. [0, limit]
   // RAND_MAX default value: 32767
   float divisor = RAND_MAX / (limit + 1);
-  float retvalue;
-  do {
-    retvalue = rand() / divisor;
-  } while (retvalue > limit);
-  return retvalue;
+  float fvalue;
+  int ivalue;
+  if (mode) {
+    do {
+      fvalue = rand() / divisor;
+    } while (fvalue > limit);
+    return fvalue;
+  } else {
+    do {
+      ivalue = rand() / divisor;
+    } while (ivalue > limit);
+    return ivalue;
+  }
 }
 
-void autoInputMatrix(float **mat, int row, int column, int limit) {
+void autoInputMatrix(char id, float **mat, int row, int column) {
+  int limit, mode;
+  do {
+    printf("\nEnter limit(>0) for autoInput into matrix %c: ", id);
+    scanf("%d", &limit);
+    printf("Enter 0 for integer, 1 for float: ");
+    scanf("%d", &mode);
+  } while (limit <= 0 || (mode != 0 && mode != 1));
   int i, j;
   for (i = 0; i < row; i++) {
     for (j = 0; j < column; j++) {
-      mat[i][j] = rand_lim(limit);
+      mat[i][j] = rand_lim(limit, mode);
     }
   }
 }
