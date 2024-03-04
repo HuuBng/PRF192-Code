@@ -12,8 +12,7 @@ int main() {
   fgets(s2, sizeof(s2), stdin);
   strtok(s2, "\n");
 
-  int add = strstr(s1, s2);
-  if (add == NULL)
+  if (strstr(s1, s2) == NULL)
     printf("NO");
   else
     printf("YES");
