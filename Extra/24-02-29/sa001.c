@@ -20,7 +20,7 @@ int main() {
 }
 
 void evenMax(int a[][50], int row, int column) {
-  int i, j, evenMax = -1, evenFirst = -1;
+  int i, j, evenFirst = -1;
 
   for(i = 0; i < row; i++) {
     for(j = 0; j < column; j++) {
@@ -31,16 +31,18 @@ void evenMax(int a[][50], int row, int column) {
     }
   }
 
+  int evenMax = evenFirst;
+
   for(i = 0; i < row; i++) {
     for(j = 0; j < column; j++) {
       if(evenFirst == -1)
         break;
-      evenMax = (a[i][j] % 2 == 0 && a[i][j] > evenFirst) ? a[i][j] : evenMax;
+      evenMax = (a[i][j] % 2 == 0 && a[i][j] > evenMax) ? a[i][j] : evenMax;
     }
     printf("\n");
   }
-  
-  if(evenMax != -1)
+
+  if(evenFirst != -1)
     printf("evenMax: %d", evenMax);
   else
     printf("There is no evenMax");
