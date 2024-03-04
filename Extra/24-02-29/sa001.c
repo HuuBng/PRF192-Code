@@ -22,9 +22,9 @@ int main() {
 void evenMax(int a[][50], int row, int column) {
   int i, j, evenFirst = -1;
 
-  for(i = 0; i < row; i++) {
-    for(j = 0; j < column; j++) {
-      if(a[i][j] % 2 == 0) {
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < column; j++) {
+      if (a[i][j] % 2 == 0) {
         evenFirst = a[i][j];
         break;
       }
@@ -33,16 +33,16 @@ void evenMax(int a[][50], int row, int column) {
 
   int evenMax = evenFirst;
 
-  for(i = 0; i < row; i++) {
-    for(j = 0; j < column; j++) {
-      if(evenFirst == -1)
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < column; j++) {
+      if (evenFirst == -1)
         break;
       evenMax = (a[i][j] % 2 == 0 && a[i][j] > evenMax) ? a[i][j] : evenMax;
     }
     printf("\n");
   }
 
-  if(evenFirst != -1)
+  if (evenFirst != -1)
     printf("evenMax: %d", evenMax);
   else
     printf("There is no evenMax");
@@ -50,8 +50,8 @@ void evenMax(int a[][50], int row, int column) {
 
 void printArray2D(int a[][50], int row, int column) {
   int i, j;
-  for(i = 0; i < row; i++) {
-    for(j = 0; j < column; j++) {
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < column; j++) {
       printf("%d\t", a[i][j]);
     }
     printf("\n");
@@ -60,8 +60,8 @@ void printArray2D(int a[][50], int row, int column) {
 
 void inputArray2D(int a[][50], int row, int column) {
   int i, j;
-  for(i = 0; i < row; i++) {
-    for(j = 0; j < column; j++) {
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < column; j++) {
       printf("[%d][%d] = ", i, j);
       scanf("%d", &a[i][j]);
     }
