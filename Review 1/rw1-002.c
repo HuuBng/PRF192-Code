@@ -9,11 +9,7 @@ int main() {
     scanf("%d", &n);
   } while (n < 0);
 
-  if (isPrime(n)) {
-    printf("0x%hX", n);
-  } else {
-    printf("%d is not a prime number", n);
-  }
+  isPrime(n) ? printf("0x%hX", n) : printf("%d is not a prime number", n);
 
   return 0;
 }
