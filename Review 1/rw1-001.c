@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void sortName(char name[][30], int n);
+void insertionSortName(char name[][30], int n);
 void inputName(char name[][30], int n);
 
 int main() {
@@ -9,7 +9,7 @@ int main() {
   char name[n][30];
 
   inputName(name, n);
-  sortName(name, n);
+  insertionSortName(name, n);
 
   char s[100] = {'\0'};
   int i;
@@ -22,7 +22,7 @@ int main() {
   return 0;
 }
 
-void sortName(char name[][30], int n) {
+void insertionSortName(char name[][30], int n) {
   int i, j;
   char temp[50];
   for (i = 0; i < n; i++) {
