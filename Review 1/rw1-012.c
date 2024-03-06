@@ -2,7 +2,6 @@
 
 void sumSeries(int x, int n);
 
-
 int main() {
   int n, x;
   do {
@@ -20,7 +19,7 @@ int main() {
 void sumSeries(int x, int n) {
   float sum = 1 + 1.0 / x, pow = x;
   int i;
-  for(i = 2; i <= n; i++) {
+  for (i = 2; i <= n; i++) {
     pow *= x;
     sum += 1.0 / pow;
   }

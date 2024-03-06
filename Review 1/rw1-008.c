@@ -18,7 +18,7 @@ int main() {
 
 void inputArray(float arr[], int n) {
   int i;
-  for(i = 0; i < n; i++) {
+  for (i = 0; i < n; i++) {
     printf("[%d] = ", i + 1);
     scanf("%f", &arr[i]);
   }
@@ -26,9 +26,9 @@ void inputArray(float arr[], int n) {
 
 void bubbleSortArray(float arr[], int n) {
   int i, j;
-  for(i = 0; i < n; i++) {
-    for(j = n - 1; j > i; j--) {
-      if(arr[j] > arr[j - 1]) {
+  for (i = 0; i < n; i++) {
+    for (j = n - 1; j > i; j--) {
+      if (arr[j] > arr[j - 1]) {
         float t = arr[j - 1];
         arr[j - 1] = arr[j];
         arr[j] = t;
@@ -39,7 +39,7 @@ void bubbleSortArray(float arr[], int n) {
 
 void printArray(float arr[], int n) {
   int i;
-  for(i = 0; i < n; i++) {
+  for (i = 0; i < n; i++) {
     printf("%f\t", arr[i]);
   }
 }
