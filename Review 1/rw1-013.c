@@ -9,8 +9,8 @@ int main() {
     printf("Enter number: ");
     scanf("%d", &arr[n]);
     n++;
-    sum += arr[n-1];
-  } while (arr[n-1] != 0);
+    sum += arr[n - 1];
+  } while (arr[n - 1] != 0);
 
   printf("%d", sum);
 
