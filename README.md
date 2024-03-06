@@ -20,7 +20,7 @@ This repo is for every thing related to my PRF192 class
 - [x] ~~Add ASM03~~
 - [x] ~~Add ASM04~~
 - [x] ~~Add ASM05~~
-- [ ] Add rw1 (66.66%)
+- [x] ~~Add rw1~~
 ***
 
 # Naming scheme
