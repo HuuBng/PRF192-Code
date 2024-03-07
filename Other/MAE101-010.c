@@ -1,4 +1,4 @@
-// Version: 6
+// Version: 7
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -6,11 +6,11 @@
 
 #define MAX 1000
 
-void inputMatrix(char id, float **mat, int row, int column);
+void inputMatrix(char id, double **mat, int row, int column);
 void inputRowColumn(char id, int *row, int *column);
-void printMatrix(float **mat, int row, int column);
-void autoInputMatrix(char id, float **mat, int row, int column);
-float rand_lim(int limit, int mode);
+void printMatrix(double **mat, int row, int column);
+void autoInputMatrix(char id, double **mat, int row, int column);
+double rand_lim(int limit, int mode);
 
 void menu() {
   printf("\n");
@@ -40,17 +40,17 @@ int main() {
       // Create matrix A (heap)
       int rowA, columnA;
       inputRowColumn('A', &rowA, &columnA);
-      float **matA = (float **)malloc(rowA * sizeof(float *));
+      double **matA = (double **)malloc(rowA * sizeof(double *));
       for (ii = 0; ii < rowA; ii++) {
-        matA[ii] = (float *)malloc(columnA * sizeof(float));
+        matA[ii] = (double *)malloc(columnA * sizeof(double));
       }
 
       // Create matrix B (heap)
       int rowB, columnB;
       inputRowColumn('B', &rowB, &columnB);
-      float **matB = (float **)malloc(rowB * sizeof(float *));
+      double **matB = (double **)malloc(rowB * sizeof(double *));
       for (ii = 0; ii < rowB; ii++) {
-        matB[ii] = (float *)malloc(columnB * sizeof(float));
+        matB[ii] = (double *)malloc(columnB * sizeof(double));
       }
 
       // Check compatible
@@ -71,9 +71,9 @@ int main() {
 
       // Create a matrix C (heap) to store result
       int rowC = rowA, columnC = columnB;
-      float **matC = (float **)malloc(rowC * sizeof(float *));
+      double **matC = (double **)malloc(rowC * sizeof(double *));
       for (ii = 0; ii < rowC; ii++) {
-        matC[ii] = (float *)malloc(columnC * sizeof(float));
+        matC[ii] = (double *)malloc(columnC * sizeof(double));
       }
 
       int i, j, k;
@@ -113,17 +113,17 @@ int main() {
       // Create matrix A (heap)
       int rowA, columnA;
       inputRowColumn('A', &rowA, &columnA);
-      float **matA = (float **)malloc(rowA * sizeof(float *));
+      double **matA = (double **)malloc(rowA * sizeof(double *));
       for (ii = 0; ii < rowA; ii++) {
-        matA[ii] = (float *)malloc(columnA * sizeof(float));
+        matA[ii] = (double *)malloc(columnA * sizeof(double));
       }
 
       // Create matrix B (heap)
       int rowB, columnB;
       inputRowColumn('B', &rowB, &columnB);
-      float **matB = (float **)malloc(rowB * sizeof(float *));
+      double **matB = (double **)malloc(rowB * sizeof(double *));
       for (ii = 0; ii < rowB; ii++) {
-        matB[ii] = (float *)malloc(columnB * sizeof(float));
+        matB[ii] = (double *)malloc(columnB * sizeof(double));
       }
 
       // Check compatible
@@ -144,16 +144,16 @@ int main() {
 
       // Create a matrix C (+)(heap) to store result
       int rowC = rowA, columnC = columnA;
-      float **matC = (float **)malloc(rowC * sizeof(float *));
+      double **matC = (double **)malloc(rowC * sizeof(double *));
       for (ii = 0; ii < rowC; ii++) {
-        matC[ii] = (float *)malloc(columnC * sizeof(float));
+        matC[ii] = (double *)malloc(columnC * sizeof(double));
       }
 
       // Create a matrix D (-)(heap) to store result
       int rowD = rowA, columnD = columnA;
-      float **matD = (float **)malloc(rowD * sizeof(float *));
+      double **matD = (double **)malloc(rowD * sizeof(double *));
       for (ii = 0; ii < rowD; ii++) {
-        matD[ii] = (float *)malloc(columnD * sizeof(float));
+        matD[ii] = (double *)malloc(columnD * sizeof(double));
       }
 
       int i, j;
@@ -193,9 +193,9 @@ int main() {
       // Create & Input matrix A (heap)
       int rowA, columnA;
       inputRowColumn('A', &rowA, &columnA);
-      float **matA = (float **)malloc(rowA * sizeof(float *));
+      double **matA = (double **)malloc(rowA * sizeof(double *));
       for (ii = 0; ii < rowA; ii++) {
-        matA[ii] = (float *)malloc(columnA * sizeof(float));
+        matA[ii] = (double *)malloc(columnA * sizeof(double));
       }
       if (autoInput) {
         autoInputMatrix('A', matA, rowA, columnA);
@@ -204,15 +204,15 @@ int main() {
       }
 
       // Input real number
-      float number;
+      double number;
       printf("\nEnter a real number: ");
-      scanf("%f", &number);
+      scanf("%lf", &number);
 
       // Create a matrix C (heap) to store result
       int rowC = rowA, columnC = columnA;
-      float **matC = (float **)malloc(rowC * sizeof(float *));
+      double **matC = (double **)malloc(rowC * sizeof(double *));
       for (ii = 0; ii < rowC; ii++) {
-        matC[ii] = (float *)malloc(columnC * sizeof(float));
+        matC[ii] = (double *)malloc(columnC * sizeof(double));
       }
 
       int i, j;
@@ -243,17 +243,17 @@ int main() {
       // Create matrix A (heap)
       int rowA, columnA;
       inputRowColumn('A', &rowA, &columnA);
-      float **matA = (float **)malloc(rowA * sizeof(float *));
+      double **matA = (double **)malloc(rowA * sizeof(double *));
       for (ii = 0; ii < rowA; ii++) {
-        matA[ii] = (float *)malloc(columnA * sizeof(float));
+        matA[ii] = (double *)malloc(columnA * sizeof(double));
       }
 
       // Create matrix B (heap)
       int rowB, columnB;
       inputRowColumn('B', &rowB, &columnB);
-      float **matB = (float **)malloc(rowB * sizeof(float *));
+      double **matB = (double **)malloc(rowB * sizeof(double *));
       for (ii = 0; ii < rowB; ii++) {
-        matB[ii] = (float *)malloc(columnB * sizeof(float));
+        matB[ii] = (double *)malloc(columnB * sizeof(double));
       }
 
       // Check compatible
@@ -273,15 +273,15 @@ int main() {
       }
 
       // Input real number
-      float number;
+      double number;
       printf("\nEnter a real number: ");
-      scanf("%f", &number);
+      scanf("%lf", &number);
 
       // Create a matrix C (heap) to store result
       int rowC = rowA, columnC = columnA;
-      float **matC = (float **)malloc(rowC * sizeof(float *));
+      double **matC = (double **)malloc(rowC * sizeof(double *));
       for (ii = 0; ii < rowC; ii++) {
-        matC[ii] = (float *)malloc(columnC * sizeof(float));
+        matC[ii] = (double *)malloc(columnC * sizeof(double));
       }
 
       int i, j;
@@ -331,13 +331,13 @@ int main() {
   return 0;
 }
 
-void inputMatrix(char id, float **mat, int row, int column) {
+void inputMatrix(char id, double **mat, int row, int column) {
   printf("\nEnter matrix %c: \n", id);
   int i, j;
   for (i = 0; i < row; i++) {
     for (j = 0; j < column; j++) {
       printf("[%d][%d] = ", i + 1, j + 1);
-      scanf("%f", &mat[i][j]);
+      scanf("%lf", &mat[i][j]);
     }
   }
 }
@@ -351,21 +351,21 @@ void inputRowColumn(char id, int *row, int *column) {
   } while (*row < 0 || *column < 0 || *row > MAX || *column > MAX);
 }
 
-void printMatrix(float **mat, int row, int column) {
+void printMatrix(double **mat, int row, int column) {
   int i, j;
   for (i = 0; i < row; i++) {
     for (j = 0; j < column; j++) {
-      printf("%.2f\t", mat[i][j]);
+      printf("%.2lf\t", mat[i][j]);
     }
     printf("\n");
   }
 }
 
-float rand_lim(int limit, int mode) {
+double rand_lim(int limit, int mode) {
   // return a random number between 0 and limit inclusive. [0, limit]
   // RAND_MAX default value: 32767
-  float divisor = RAND_MAX / (limit + 1);
-  float fvalue;
+  double divisor = RAND_MAX / (limit + 1);
+  double fvalue;
   int ivalue;
   if (mode) {
     do {
@@ -380,7 +380,7 @@ float rand_lim(int limit, int mode) {
   }
 }
 
-void autoInputMatrix(char id, float **mat, int row, int column) {
+void autoInputMatrix(char id, double **mat, int row, int column) {
   int limit, mode;
   do {
     printf("\nEnter limit(>0) for autoInput into matrix %c: ", id);
