@@ -20,10 +20,9 @@ int main() {
 }
 
 void findExponent(int a, int *count) {
-  int b = a;
-  if (b % 2 == 0) {
-    while (b > 2) {
-      b /= 2;
+  if (a % 2 == 0) {
+    while (a > 2) {
+      a /= 2;
       *count += 1;
     }
   }
