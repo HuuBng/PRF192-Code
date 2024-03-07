@@ -1,4 +1,4 @@
-// Version: 7.1
+// Version: 8
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -362,20 +362,13 @@ void printMatrix(double **mat, int row, int column) {
 }
 
 double rand_lim(int limit, int mode) {
-  // return a random number between 0 and limit inclusive. [0, limit]
+  // return a random number between -limit and limit inclusive. [-limit, limit]
   // RAND_MAX default value: 32767
-  double divisor = RAND_MAX / (limit + 1);
-  double fvalue;
-  int ivalue;
   if (mode) {
-    do {
-      fvalue = rand() / divisor;
-    } while (fvalue > limit);
+    double fvalue = 2 * limit * (1.0 * rand()) / RAND_MAX - limit;
     return fvalue;
   } else {
-    do {
-      ivalue = rand() / divisor;
-    } while (ivalue > limit);
+    double ivalue = 2 * limit * (1 * rand()) / RAND_MAX - limit;
     return ivalue;
   }
 }
@@ -383,7 +376,8 @@ double rand_lim(int limit, int mode) {
 void autoInputMatrix(char id, double **mat, int row, int column) {
   int limit, mode;
   do {
-    printf("\nEnter limit(>0) for autoInput into matrix %c: ", id);
+    printf("\nEnter limit(>0) for autoInput [-limit, limit] into matrix %c: ",
+           id);
     scanf("%d", &limit);
     printf("Enter 0 for integer, 1 for float: ");
     scanf("%d", &mode);
