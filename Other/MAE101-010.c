@@ -1,4 +1,4 @@
-// Version: 7
+// Version: 7.1
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -348,7 +348,7 @@ void inputRowColumn(char id, int *row, int *column) {
     scanf("%d", row);
     printf("Enter number of column for matrix %c: ", id);
     scanf("%d", column);
-  } while (*row < 0 || *column < 0 || *row > MAX || *column > MAX);
+  } while (*row <= 0 || *column <= 0 || *row > MAX || *column > MAX);
 }
 
 void printMatrix(double **mat, int row, int column) {
