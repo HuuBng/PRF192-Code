@@ -23,10 +23,10 @@ char* reverseString(char *s){
 	for(i = 0; i < size; i++) {
 	 	if(isalpha(str[i]) || (str[i] >= '0' && str[i] <= '9')) {
 			name[k][j] = str[i];
-			j += 1;
+			j++;
 	 	} else if (str[i] == ' ' || str[i] == '\0') {
 	 		name[k][j] = '\0';
-	 		k += 1;
+	 		k++;
 	 		j = 0;
 		 }
 	}
@@ -41,9 +41,7 @@ char* reverseString(char *s){
 		i++;
 	}
 
-	for(i = 0; str[i] != '\0'; i++) {
-			str[i] = toupper(str[i]);
-	}
+	strupr(str);
 
 //	// Debugger
 //	printf("\nk%d-j%d\n", k, j);
