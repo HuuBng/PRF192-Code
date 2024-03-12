@@ -5,7 +5,7 @@
 double sum(int n){
 	//Write your statements here
   double i, sum = 0;
-  for(i = 1; i <= 5; i++) {
+  for(i = 1; i <= n; i++) {
     sum += i / sqrt(i);
   }
   return sum;
