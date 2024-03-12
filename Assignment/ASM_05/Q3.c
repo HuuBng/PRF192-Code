@@ -14,38 +14,38 @@ char* reverseString(char *s){
 	char str[MAX];
 	int size, i;
 	//Begin your statements here======================
-	int k = 0, j = 0;
-	int ik;
+	int row = 0, col = 0;
+	int irow;
 	strcpy(str, s);
 	trim(str);
 	size = strlen(str);
 
 	for(i = 0; i < size; i++) {
-	 	if(isalpha(str[i]) || (str[i] >= '0' && str[i] <= '9')) {
-			name[k][j] = str[i];
-			j++;
+	 	if(isalpha(str[i])) {
+			name[row][col] = str[i];
+			col++;
 	 	} else if (str[i] == ' ' || str[i] == '\0') {
-	 		name[k][j] = '\0';
-	 		k++;
-	 		j = 0;
+	 		name[row][col] = '\0';
+	 		row++;
+	 		col = 0;
 		 }
 	}
 
 	i = 0;
-	for(ik = k; ik >= 0; ik-- ) {
-		for(j = 0; j < strlen(name[ik]); j++) {
-			str[i] = name[ik][j];
+	for(irow = row; irow >= 0; irow-- ) {
+		for(col = 0; col < strlen(name[irow]); col++) {
+			str[i] = name[irow][col];
 			i++;
 		}
-		str[i] = ' ';
+		str[i] = (irow > 0) ? ' ' : '\0';
 		i++;
 	}
 
 	strupr(str);
 
 //	// Debugger
-//	printf("\nk%d-j%d\n", k, j);
-//	for (i = 0; i <= k; i++) {
+//	printf("\nrow%d-col%d\n", row, col);
+//	for (i = 0; i <= row; i++) {
 //		printf("-%s-", name[i]);
 //	}
 
