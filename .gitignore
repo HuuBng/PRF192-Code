@@ -231,6 +231,7 @@ dkms.conf
 # Word Auto Backup File
 Backup of *.doc*
 *.docx
+*.doc
 # Excel temporary
 ~$*.xls*
 
