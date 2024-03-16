@@ -25,7 +25,7 @@ int main() {
         if(a >= b || n < 1) {
             printf("Invalid\n");
         }
-    } while (a > b || n < 1);
+    } while (a >= b || n < 1);
     // Calculate integral with 5 methods
     double left = leftEndPoint(f, a, b, n);
     double right = rightEndPoint(f, a, b, n);
