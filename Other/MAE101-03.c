@@ -4,12 +4,12 @@
 #include <math.h>
 #include <stdio.h>
 
-// Định nghĩa hàm f(x)
+// Dinh nghia ham fx
 double f(double x) {
-  return x * x * x - x - 2; // Hàm số x^3 + 3x 2 2
+  return x * x * x - x - 2; // ham so x^3-x-2
 }
 
-// Phương pháp chia đôi
+// phuong phap chia doi
 double bisection_method(double (*f)(double), double a, double b, double TOL,
                         int NMAX) {
   int N = 1;
@@ -17,7 +17,7 @@ double bisection_method(double (*f)(double), double a, double b, double TOL,
   while (N <= NMAX) {
     c = (a + b) / 2;
     if (f(c) == 0 || (b - a) / 2 < TOL) {
-      return c; // Output giá trị gần đúng của nghiệm
+      return c; // output gia tri gan dung cua nghiem
     }
     N++;
     if (f(c) * f(a) > 0) {
@@ -26,7 +26,7 @@ double bisection_method(double (*f)(double), double a, double b, double TOL,
       b = c;
     }
   }
-  return -1; // Phương pháp thất bại sau NMAX bước
+  return -1; // phuong phap that bai sau nmax buoc
 }
 
 int main() {
@@ -48,7 +48,7 @@ int main() {
     scanf("%lf", &b);
   }
 
-  printf("Enter tol: "); // Nhập sai số
+  printf("Enter tol: "); // nhap sai so
   scanf("%lf", &TOL);
 
   printf("Enter iterations: ");
